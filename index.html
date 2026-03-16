@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Drip | Zapatillas Streetwear</title>
+<title>National Drip | Streetwear</title>
 
 <style>
 
@@ -26,37 +26,34 @@ background:#0a0f1c;
 color:white;
 }
 
-/* NAVBAR */
+/* MENU */
 
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 8%;
-background:black;
+.menu-btn{
+position:fixed;
+top:15px;
+left:15px;
+font-size:28px;
+cursor:pointer;
+z-index:1000;
 }
 
-.logo{
-font-size:24px;
-font-weight:bold;
-color:#3da9fc;
+.menu{
+position:fixed;
+top:0;
+left:-250px;
+width:250px;
+height:100%;
+background:#020617;
+padding:40px;
+transition:0.4s;
 }
 
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
-
-nav a{
+.menu a{
+display:block;
+margin:20px 0;
 color:white;
 text-decoration:none;
-font-size:14px;
-transition:0.3s;
-}
-
-nav a:hover{
-color:#facc15;
+font-size:18px;
 }
 
 /* HERO */
@@ -73,132 +70,148 @@ padding:20px;
 }
 
 .hero h1{
-font-size:52px;
+font-size:50px;
 margin-bottom:10px;
 }
 
 .hero p{
 color:#cbd5e1;
-margin-bottom:25px;
 }
 
-.hero button{
-background:#facc15;
-border:none;
-padding:15px 35px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-font-weight:bold;
-}
+/* BUSCADOR */
 
-/* PRODUCTOS */
-
-.productos{
-padding:70px 8%;
-}
-
-.titulo{
+.buscador{
 text-align:center;
-font-size:32px;
-margin-bottom:50px;
+padding:30px;
 }
+
+.buscador input{
+padding:12px;
+width:80%;
+max-width:400px;
+border-radius:8px;
+border:none;
+}
+
+/* GRID PRODUCTOS */
 
 .grid{
-
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:25px;
+padding:40px;
 }
 
+/* TARJETAS */
+
 .card{
-
 background:#111827;
-border-radius:12px;
-padding:18px;
-text-align:center;
+padding:15px;
+border-radius:10px;
 transition:0.3s;
-
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:scale(1.05);
 }
 
 .card img{
 width:100%;
-border-radius:10px;
-margin-bottom:15px;
-}
-
-.nombre{
-font-size:18px;
-margin-bottom:5px;
+border-radius:8px;
 }
 
 .precio{
 color:#22c55e;
-margin-bottom:12px;
+margin-top:5px;
 font-weight:bold;
 }
 
-.card button{
+.desc{
+font-size:13px;
+color:#ccc;
+margin-top:5px;
+}
 
+/* BOTONES */
+
+button{
+margin-top:10px;
 background:#facc15;
 border:none;
-padding:10px 20px;
+padding:10px;
 border-radius:6px;
 cursor:pointer;
 font-weight:bold;
-
 }
 
-/* MAYORISTA */
+/* SECCIONES */
 
-.mayorista{
-
-background:black;
-padding:80px 10%;
+.seccion{
+padding:40px;
 text-align:center;
-
 }
 
-.mayorista h2{
-font-size:32px;
-margin-bottom:15px;
+.seccion h2{
+margin-bottom:10px;
 }
 
-.mayorista p{
-color:#9ca3af;
-margin-bottom:25px;
+/* OFERTAS */
+
+.ofertas{
+background:#7c2d12;
+padding:40px;
+text-align:center;
 }
 
-.mayorista button{
+/* REDES */
 
-background:#22c55e;
-border:none;
-padding:14px 30px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
+.redes{
+text-align:center;
+padding:30px;
+}
 
+.redes a{
+margin:10px;
+color:white;
+text-decoration:none;
+font-size:18px;
 }
 
 /* FOOTER */
 
 footer{
-
 background:#020617;
+padding:30px;
 text-align:center;
-padding:35px;
-color:#94a3b8;
-margin-top:40px;
-
+color:#aaa;
 }
 
-footer strong{
+/* WHATSAPP FLOTANTE */
+
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+padding:15px;
+border-radius:50%;
+font-size:24px;
 color:white;
+text-decoration:none;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:600px){
+
+.hero h1{
+font-size:32px;
+}
+
+.grid{
+padding:20px;
+}
+
 }
 
 </style>
@@ -207,142 +220,197 @@ color:white;
 
 <body>
 
-<!-- NAVBAR -->
+<!-- MENU -->
 
-<nav>
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<div class="logo">National Drip</div>
+<div class="menu" id="menu">
 
-<ul>
+<a href="#zapatillas">Zapatillas</a>
+<a href="#gorras">Gorras</a>
+<a href="#camisetas">Camisetas</a>
+<a href="#ofertas">Ofertas</a>
 
-<li><a href="#">Inicio</a></li>
-<li><a href="#productos">Zapatillas</a></li>
-<li><a href="#mayorista">Mayoristas</a></li>
+</div>
 
-</ul>
-
-</nav>
-
-
-<!-- HERO / PORTADA -->
+<!-- HERO -->
 
 <section class="hero">
 
 <h1>National Drip</h1>
 
-<p>Tu mejor aliado en zapatillas streetwear</p>
-
-<button onclick="document.getElementById('productos').scrollIntoView()">
-Ver catálogo
-</button>
+<p>Las mejores zapatillas streetwear al mejor precio. Venta al detal y mayorista.</p>
 
 </section>
 
+<!-- BUSCADOR -->
 
-<!-- PRODUCTOS -->
+<div class="buscador">
 
-<section class="productos" id="productos">
-
-<h2 class="titulo">Nuestras Zapatillas</h2>
-
-<div class="grid">
-
-
-<!-- PRODUCTO 1 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
-
-<div class="nombre">Nike Street Air</div>
-
-<div class="precio">$180.000</div>
-
-<a href="https://wa.me/573116169901">
-
-<button>Comprar</button>
-
-</a>
+<input type="text" id="buscar" placeholder="Buscar producto..." onkeyup="buscarProducto()">
 
 </div>
 
+<!-- OFERTAS -->
 
-<!-- PRODUCTO 2 -->
+<section class="ofertas" id="ofertas">
 
-<div class="card">
+<h2>🔥 Ofertas por tiempo limitado</h2>
 
-<img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5">
+<p>Aprovecha nuestras promociones especiales.</p>
 
-<div class="nombre">Adidas Urban</div>
-
-<div class="precio">$170.000</div>
-
-<a href="https://wa.me/573116169901">
-
-<button>Comprar</button>
-
-</a>
-
-</div>
-
-
-<!-- PRODUCTO 3 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1528701800489-20be9c1f9d0c">
-
-<div class="nombre">Jordan Retro</div>
-
-<div class="precio">$220.000</div>
-
-<a href="https://wa.me/573116169901">
-
-<button>Comprar</button>
-
-</a>
-
-</div>
-
-
-<!-- PRODUCTO 4 -->
-
-<div class="card">
-
-<img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a">
-
-<div class="nombre">Urban Classic</div>
-
-<div class="precio">$160.000</div>
-
-<a href="https://wa.me/573116169901">
-<button>Comprar</button>
-</a>
-</div>
-</div>
 </section>
+
+<!-- ZAPATILLAS -->
+
+<section class="seccion" id="zapatillas">
+
+<h2>Zapatillas</h2>
+
+<p style="color:#ccc">Trabajamos con talla EUR, revisa bien qué talla eres.</p>
+
+</section>
+
+<div class="grid" id="productos">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+
+<h3>Nike Street Air</h3>
+
+<p class="precio">$180.000</p>
+
+<p class="desc">Zapatilla cómoda y ligera ideal para uso diario y estilo urbano.</p>
+
+<select>
+<option>Talla EUR</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+</select>
+
+<button onclick="detalle()">Comprar por WhatsApp</button>
+
+</div>
+
+</div>
+
+<!-- GORRAS -->
+
+<section class="seccion" id="gorras">
+
+<h2>Gorras</h2>
+
+<p>Próximamente agregaremos nuestros modelos de gorras.</p>
+
+</section>
+
+<!-- CAMISETAS -->
+
+<section class="seccion" id="camisetas">
+
+<h2>Camisetas</h2>
+
+<p>Próximamente agregaremos nuestras camisetas National Drip.</p>
+
+</section>
+
 <!-- MAYORISTAS -->
-<section class="mayorista" id="mayorista">
+
+<section class="seccion">
+
 <h2>Compra Mayorista</h2>
-<p>
-Disponible en caja, docena o media docena.  
-Ideal para emprendedores que quieren empezar su negocio.
-</p>
-<a href="https://wa.me/573116169901">
+
+<p>Tenemos precios especiales para emprendedores.</p>
+
+<a href="https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información%20sobre%20los%20precios%20mayoristas">
+
 <button>Hablar por WhatsApp</button>
+
 </a>
+
 </section>
+
+<!-- REDES -->
+
+<div class="redes">
+
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+<a href="#">Facebook</a>
+
+</div>
+
 <!-- FOOTER -->
+
 <footer>
 
 <p><strong>National Drip</strong></p>
 
-<p>Zapatillas Streetwear</p>
+<p>Ofrecemos zapatillas, gorras y camisetas streetwear.</p>
 
-<p>Envíos a todo el país</p>
+<p>Venta al detal y mayorista para emprendedores.</p>
+
+<p>Envíos a todo Colombia.</p>
+
+<p>WhatsApp: 311 616 9901</p>
 
 </footer>
 
+<!-- WHATSAPP FLOTANTE -->
+
+<a class="whatsapp"
+href="https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información,%20quiero%20estas%20para%20mi">
+
+💬
+
+</a>
+
+<script>
+
+function toggleMenu(){
+
+let menu=document.getElementById("menu");
+
+if(menu.style.left==="0px"){
+menu.style.left="-250px";
+}else{
+menu.style.left="0px";
+}
+
+}
+
+function buscarProducto(){
+
+let input=document.getElementById("buscar").value.toLowerCase();
+
+let cards=document.getElementsByClassName("card");
+
+for(let i=0;i<cards.length;i++){
+
+let titulo=cards[i].innerText.toLowerCase();
+
+if(titulo.includes(input)){
+cards[i].style.display="block";
+}else{
+cards[i].style.display="none";
+}
+
+}
+
+}
+
+function detalle(){
+
+window.open("https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información,%20quiero%20estas%20para%20mi")
+
+}
+
+</script>
 
 </body>
 </html>
