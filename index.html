@@ -6,20 +6,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>National Drip | Streetwear</title>
+<title>National Drip</title>
 
 <style>
-
-/* RESET */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
-
-/* BODY */
 
 body{
 background:#0a0f1c;
@@ -53,36 +49,25 @@ display:block;
 margin:20px 0;
 color:white;
 text-decoration:none;
-font-size:18px;
 }
 
 /* HERO */
 
 .hero{
-height:70vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
+padding:100px 20px;
 text-align:center;
 background:linear-gradient(45deg,#020617,#111827);
-padding:20px;
 }
 
 .hero h1{
-font-size:50px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#cbd5e1;
+font-size:48px;
 }
 
 /* BUSCADOR */
 
 .buscador{
 text-align:center;
-padding:30px;
+margin:30px;
 }
 
 .buscador input{
@@ -93,7 +78,7 @@ border-radius:8px;
 border:none;
 }
 
-/* GRID PRODUCTOS */
+/* PRODUCTOS */
 
 .grid{
 display:grid;
@@ -101,8 +86,6 @@ grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
 gap:25px;
 padding:40px;
 }
-
-/* TARJETAS */
 
 .card{
 background:#111827;
@@ -129,10 +112,7 @@ font-weight:bold;
 .desc{
 font-size:13px;
 color:#ccc;
-margin-top:5px;
 }
-
-/* BOTONES */
 
 button{
 margin-top:10px;
@@ -141,18 +121,6 @@ border:none;
 padding:10px;
 border-radius:6px;
 cursor:pointer;
-font-weight:bold;
-}
-
-/* SECCIONES */
-
-.seccion{
-padding:40px;
-text-align:center;
-}
-
-.seccion h2{
-margin-bottom:10px;
 }
 
 /* OFERTAS */
@@ -174,19 +142,9 @@ padding:30px;
 margin:10px;
 color:white;
 text-decoration:none;
-font-size:18px;
 }
 
-/* FOOTER */
-
-footer{
-background:#020617;
-padding:30px;
-text-align:center;
-color:#aaa;
-}
-
-/* WHATSAPP FLOTANTE */
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
@@ -194,24 +152,31 @@ bottom:20px;
 right:20px;
 background:#25D366;
 padding:15px;
-border-radius:50%;
-font-size:24px;
+border-radius:30px;
 color:white;
 text-decoration:none;
+font-weight:bold;
 }
 
-/* RESPONSIVE */
+/* CARRITO */
 
-@media(max-width:600px){
-
-.hero h1{
-font-size:32px;
+.carrito{
+position:fixed;
+bottom:80px;
+right:20px;
+background:#facc15;
+padding:12px;
+border-radius:20px;
+cursor:pointer;
+color:black;
+font-weight:bold;
 }
 
-.grid{
-padding:20px;
-}
-
+footer{
+background:#020617;
+padding:30px;
+text-align:center;
+color:#aaa;
 }
 
 </style>
@@ -238,8 +203,7 @@ padding:20px;
 <section class="hero">
 
 <h1>National Drip</h1>
-
-<p>Las mejores zapatillas streetwear al mejor precio. Venta al detal y mayorista.</p>
+<p>Streetwear al mejor precio | Venta detal y mayorista</p>
 
 </section>
 
@@ -247,7 +211,7 @@ padding:20px;
 
 <div class="buscador">
 
-<input type="text" id="buscar" placeholder="Buscar producto..." onkeyup="buscarProducto()">
+<input type="text" id="buscar" placeholder="🔍 Buscar zapatillas..." onkeyup="buscarProducto()">
 
 </div>
 
@@ -256,44 +220,211 @@ padding:20px;
 <section class="ofertas" id="ofertas">
 
 <h2>🔥 Ofertas por tiempo limitado</h2>
-
 <p>Aprovecha nuestras promociones especiales.</p>
 
 </section>
 
 <!-- ZAPATILLAS -->
 
-<section class="seccion" id="zapatillas">
+<section id="zapatillas">
 
-<h2>Zapatillas</h2>
+<h2 style="text-align:center">Zapatillas</h2>
 
-<p style="color:#ccc">Trabajamos con talla EUR, revisa bien qué talla eres.</p>
+<p style="text-align:center;color:#ccc">Trabajamos con talla EUR</p>
 
 </section>
 
 <div class="grid" id="productos">
 
-<div class="card">
+<!-- PRODUCTO -->
+
+<div class="card producto">
 
 <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
 
-<h3>Nike Street Air</h3>
+<h3>Nike Air Force Blancas</h3>
 
-<p class="precio">$180.000</p>
+<p class="precio">$130.000</p>
 
-<p class="desc">Zapatilla cómoda y ligera ideal para uso diario y estilo urbano.</p>
+<p class="desc">Zapatilla clásica urbana cómoda para cualquier outfit.</p>
 
-<select>
-<option>Talla EUR</option>
+<p>Dama - Caballero</p>
+
+<select class="talla">
+<option value="">Selecciona talla EUR</option>
+<option>36</option>
+<option>37</option>
 <option>38</option>
 <option>39</option>
 <option>40</option>
 <option>41</option>
 <option>42</option>
 <option>43</option>
+<option>44</option>
 </select>
 
-<button onclick="detalle()">Comprar por WhatsApp</button>
+<button onclick="agregarCarrito('Nike Air Force Blancas',this)">Agregar al carrito</button>
+
+</div>
+
+
+<div class="card producto">
+
+<img src="https://images.unsplash.com/photo-1528701800489-20be9c1f9d0c">
+
+<h3>Nike Air Force Negras</h3>
+
+<p class="precio">$130.000</p>
+
+<p class="desc">Estilo elegante urbano ideal para cualquier ocasión.</p>
+
+<p>Dama - Caballero</p>
+
+<select class="talla">
+
+<option value="">Selecciona talla EUR</option>
+
+<option>36</option>
+<option>37</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+
+</select>
+
+<button onclick="agregarCarrito('Nike Air Force Negras',this)">Agregar al carrito</button>
+
+</div>
+
+
+<div class="card producto">
+
+<img src="https://images.unsplash.com/photo-1597045566677-8cf032ed6634">
+
+<h3>BAPE STAR</h3>
+
+<p class="precio">$135.000</p>
+
+<p class="desc">Diseño exclusivo streetwear premium.</p>
+
+<p>Caballero</p>
+
+<select class="talla">
+
+<option value="">Selecciona talla EUR</option>
+
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+
+</select>
+
+<button onclick="agregarCarrito('BAPE STAR',this)">Agregar al carrito</button>
+
+</div>
+
+
+<div class="card producto">
+
+<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+
+<h3>Adidas ADIZERO</h3>
+
+<p class="precio">$135.000</p>
+
+<p class="desc">Zapatilla ligera ideal para uso urbano.</p>
+
+<p>Dama - Caballero</p>
+
+<select class="talla">
+
+<option value="">Selecciona talla EUR</option>
+
+<option>36</option>
+<option>37</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+
+</select>
+
+<button onclick="agregarCarrito('Adidas ADIZERO',this)">Agregar al carrito</button>
+
+</div>
+
+
+<div class="card producto">
+
+<img src="https://images.unsplash.com/photo-1584735175097-719d848f8449">
+
+<h3>Asics Gel Kayano</h3>
+
+<p class="precio">$135.000</p>
+
+<p class="desc">Máxima comodidad y amortiguación.</p>
+
+<p>Dama - Caballero</p>
+
+<select class="talla">
+
+<option value="">Selecciona talla EUR</option>
+
+<option>36</option>
+<option>37</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+
+</select>
+
+<button onclick="agregarCarrito('Asics Gel Kayano',this)">Agregar al carrito</button>
+
+</div>
+
+
+<div class="card producto">
+
+<img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a">
+
+<h3>Nike Cortez</h3>
+
+<p class="precio">$135.000</p>
+
+<p class="desc">Modelo clásico retro con estilo único.</p>
+
+<p>Dama - Caballero</p>
+
+<select class="talla">
+
+<option value="">Selecciona talla EUR</option>
+
+<option>36</option>
+<option>37</option>
+<option>38</option>
+<option>39</option>
+<option>40</option>
+<option>41</option>
+<option>42</option>
+<option>43</option>
+<option>44</option>
+
+</select>
+
+<button onclick="agregarCarrito('Nike Cortez',this)">Agregar al carrito</button>
 
 </div>
 
@@ -301,33 +432,33 @@ padding:20px;
 
 <!-- GORRAS -->
 
-<section class="seccion" id="gorras">
+<section id="gorras" style="text-align:center;padding:40px">
 
 <h2>Gorras</h2>
 
-<p>Próximamente agregaremos nuestros modelos de gorras.</p>
+<p>Próximamente nuestros modelos.</p>
 
 </section>
 
 <!-- CAMISETAS -->
 
-<section class="seccion" id="camisetas">
+<section id="camisetas" style="text-align:center;padding:40px">
 
 <h2>Camisetas</h2>
 
-<p>Próximamente agregaremos nuestras camisetas National Drip.</p>
+<p>Próximamente colección National Drip.</p>
 
 </section>
 
 <!-- MAYORISTAS -->
 
-<section class="seccion">
+<section style="text-align:center;padding:40px">
 
 <h2>Compra Mayorista</h2>
 
-<p>Tenemos precios especiales para emprendedores.</p>
+<p>Precios especiales para emprendedores.</p>
 
-<a href="https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información%20sobre%20los%20precios%20mayoristas">
+<a href="https://wa.me/573116169901?text=Hola National Drip, me interesa obtener mas información sobre los precios mayoristas">
 
 <button>Hablar por WhatsApp</button>
 
@@ -345,42 +476,44 @@ padding:20px;
 
 </div>
 
-<!-- FOOTER -->
-
 <footer>
 
 <p><strong>National Drip</strong></p>
 
-<p>Ofrecemos zapatillas, gorras y camisetas streetwear.</p>
+<p>Ofrecemos zapatillas, gorras y camisetas streetwear</p>
 
-<p>Venta al detal y mayorista para emprendedores.</p>
+<p>Venta al detal y mayorista</p>
 
-<p>Envíos a todo Colombia.</p>
-
-<p>WhatsApp: 311 616 9901</p>
+<p>Envíos a todo Colombia</p>
 
 </footer>
 
-<!-- WHATSAPP FLOTANTE -->
+<!-- BOTON WHATSAPP -->
 
 <a class="whatsapp"
-href="https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información,%20quiero%20estas%20para%20mi">
+href="https://wa.me/573116169901?text=Hola National Drip, me interesa obtener mas información">
 
-💬
+💬 Escribir al WhatsApp
 
 </a>
 
+<!-- BOTON CARRITO -->
+
+<div class="carrito" onclick="enviarCarrito()">
+
+🛒 Enviar carrito
+
+</div>
+
 <script>
+
+let carrito=[];
 
 function toggleMenu(){
 
 let menu=document.getElementById("menu");
 
-if(menu.style.left==="0px"){
-menu.style.left="-250px";
-}else{
-menu.style.left="0px";
-}
+menu.style.left=(menu.style.left==="0px")?"-250px":"0px";
 
 }
 
@@ -388,29 +521,62 @@ function buscarProducto(){
 
 let input=document.getElementById("buscar").value.toLowerCase();
 
-let cards=document.getElementsByClassName("card");
+let cards=document.getElementsByClassName("producto");
 
 for(let i=0;i<cards.length;i++){
 
-let titulo=cards[i].innerText.toLowerCase();
+let texto=cards[i].innerText.toLowerCase();
 
-if(titulo.includes(input)){
-cards[i].style.display="block";
-}else{
-cards[i].style.display="none";
-}
+cards[i].style.display=texto.includes(input)?"block":"none";
 
 }
 
 }
 
-function detalle(){
+function agregarCarrito(nombre,boton){
 
-window.open("https://wa.me/573116169901?text=Hola%20National%20Drip,%20me%20interesa%20obtener%20mas%20información,%20quiero%20estas%20para%20mi")
+let card=boton.parentElement;
+
+let talla=card.querySelector(".talla").value;
+
+if(talla===""){
+
+alert("Selecciona una talla");
+
+return;
+
+}
+
+carrito.push(nombre+" - Talla "+talla);
+
+alert("Producto agregado al carrito");
+
+}
+
+function enviarCarrito(){
+
+if(carrito.length===0){
+
+alert("Tu carrito está vacío");
+
+return;
+
+}
+
+let mensaje="Hola National Drip, quiero comprar:%0A";
+
+carrito.forEach(p=>{
+
+mensaje+="• "+p+"%0A";
+
+});
+
+window.open("https://wa.me/573116169901?text="+mensaje);
 
 }
 
 </script>
 
 </body>
+
 </html>
